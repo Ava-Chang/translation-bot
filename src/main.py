@@ -63,4 +63,8 @@ def callback():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=server_port)
+    env = os.getenv('FLASK_ENV', 'development')
+    if env == 'development':
+        app.run(debug=True, host='0.0.0.0', port=server_port)
+    else:
+        print(f"Running in {env} mode, app.run() is not executed")
