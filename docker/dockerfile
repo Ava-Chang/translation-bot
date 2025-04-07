@@ -1,0 +1,26 @@
+FROM python:3.9-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    TZ=Asia/Taipei \
+    DEBIAN_FRONTEND=noninteractive
+
+ARG PORT
+
+RUN sed -i 's/http/https/' /etc/apt/sources.list.d/debian.sources && \
+    apt-get update -y && \
+    apt-get install -y curl unzip && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /code
+
+COPY requirements.txt .
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+
+RUN uv pip install --system --no-cache-dir --upgrade pip && \
+    uv pip install --system --no-cache-dir -r requirements.txt
+
+EXPOSE ${PORT}
