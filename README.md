@@ -39,6 +39,7 @@ translation-bot
 
 3. Set up your environment variables in the `.env` file. You will need to include:
    - PORT                                  # Port for the application to run on
+   - FLASK_ENV                             # default "development"
    - OPENAI_API_KEY                        # OpenAI API key for LLM
    - LINE Channel Secret and Access Token
    - LINE_USER_ID                          # set this variable to the user ID of the target user receiving the translation
