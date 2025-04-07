@@ -27,13 +27,19 @@ translation-bot
 1. Clone the repository:
 
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/Ava-Chang/translation-bot.git
    cd translation-bot
    ```
 
-2. Set up your environment variables in the `.env` file. You will need to include:
-   - PORT
-   - OPENAI_API_KEY
+2. copy the `.env.example` file to `.env`:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+3. Set up your environment variables in the `.env` file. You will need to include:
+   - PORT                                  # Port for the application to run on
+   - OPENAI_API_KEY                        # OpenAI API key for LLM
    - LINE Channel Secret and Access Token
    - LINE_USER_ID                          # set this variable to the user ID of the target user receiving the translation
 
@@ -50,7 +56,7 @@ To stop the translation bot, execute the following command:
 
 ```sh
 cd docker
-docker-compose --env-file=../.env up
+docker-compose --env-file=../.env down
 ```
 
 The bot will listen for user input and translate between Chinese and Indonesian based on the input language.
