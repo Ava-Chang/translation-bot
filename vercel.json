@@ -2,19 +2,12 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/src/main.py" }
   ],
-  "functions": {
-    "src/main.py": {
-      "memory": 512,
-      "maxDuration": 10,
-      "includeFiles": "docker/requirements.txt"
-    }
-  },
   "builds": [
     {
       "src": "src/main.py",
       "use": "@vercel/python",
       "config": {
-        "runtime": "python3.11",
+        "runtime": "python3.9",
         "installCommand": "pip install -r docker/requirements.txt"
       }
     }
