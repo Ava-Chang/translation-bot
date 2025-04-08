@@ -1,18 +1,5 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/src/main.py" }
-  ],
-  "builds": [
-    {
-      "src": "src/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.9",
-        "installCommand": "pip install -r docker/requirements.txt"
-      }
-    }
-  ],
-  "env": {
-    "FLASK_ENV": "production"
-  }
+  ]
 }
