@@ -6,5 +6,5 @@
   "routes": [
     { "src": "/(.*)", "dest": "src/main.py" }
   ],
-  "installCommand": "pip install -r docker/requirements.txt"
+  "installCommand": "pip install -r /docker/requirements.txt"
 }
