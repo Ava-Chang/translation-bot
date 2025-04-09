@@ -10,8 +10,5 @@
       "src": "/(.*)",
       "dest": "src/main.py"
     }
-  ],
-  "includeFiles": [
-    "src/**"
   ]
 }
