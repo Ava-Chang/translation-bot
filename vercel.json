@@ -1,6 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/src/main.py" }
+  "version": 2,
+  "builds": [
+    { "src": "src/main.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "src/main.py" }
   ],
   "installCommand": "pip install -r docker/requirement.txt"
 }
