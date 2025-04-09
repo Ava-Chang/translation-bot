@@ -2,5 +2,9 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/src/main" }
   ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/src/main.py" }
+  ],
   "installCommand": "pip install -r docker/requirement.txt"
 }
