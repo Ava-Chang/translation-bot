@@ -2,11 +2,8 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/src/main" }
   ],
-  "functions": {
-    "src/main.py": {
-      "runtime": "@vercel/python@3.9",
-      "includeFiles": "**"
-    }
-  },
+  "builds": [
+    { "src": "src/main.py", "use": "@vercel/python" }
+  ],
   "installCommand": "pip install -r docker/requirement.txt"
 }
