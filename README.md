@@ -18,7 +18,7 @@ translation-bot
 │   └── requirements.txt        # Python dependencies for the Docker image
 ├── .env.example                       # Environment variables for sensitive information
 ├── .gitignore
-├── requirements.txt           # Python dependencies for the project
+├── requirements.txt           # Python dependencies for the vercel project deploy
 └── README.md                  # Project documentation
 ```
 

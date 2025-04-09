@@ -1,17 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    { 
-      "src": "src/main.py", 
-      "use": "@vercel/python",
-      "config": {
-        "includeFiles": ["docker/**"],
-        "pip": ["flask"]
-      }
-    }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "src/main.py" }
-  ],
-  "installCommand": "pip install -r docker/requirements.txt"
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/src/main" }
+  ]
 }
