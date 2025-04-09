@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/src/main.py" }
-  ]
+    { "source": "/(.*)", "destination": "/src/main" }
+  ],
+  "functions": {
+    "src/main.py": {
+      "runtime": "python3.9",
+      "includeFiles": "**"
+    }
+  },
+  "installCommand": "pip install -r docker/requirement.txt"
 }
