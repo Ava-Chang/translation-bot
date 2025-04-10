@@ -15,8 +15,6 @@ load_dotenv()
 
 app = Flask(__name__)
 
-server_port = int(os.getenv('PORT'))
-
 
 # add logging with level INFO and Debug and Error
 logging.basicConfig(
@@ -69,6 +67,7 @@ def callback():
 if __name__ == '__main__':
     env = os.getenv('FLASK_ENV', 'development')
     if env == 'development':
+        server_port = int(os.getenv('PORT', 5000))
         app.run(debug=True, host='0.0.0.0', port=server_port)
     else:
         print(f"Running in {env} mode, app.run() is not executed")
