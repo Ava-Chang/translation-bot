@@ -7,20 +7,24 @@ This project is a translation bot that translates text between Chinese and Indon
 ```sh
 translation-bot
 ├── src
+│   ├── __init__.py
 │   ├── main.py                # Main entry point of the application
 │   ├── services
-│   │   ├── line_service.py     # Handles interactions with LINE API
+│   │   ├── __init__.py
+│   │   └── line_service.py    # Handles interactions with LINE API
 │   └── utils
-│       └── helper.py # Contains utility functions for translation
+│       ├── __init__.py
+│       └── helper.py          # Contains utility functions for translation
 ├── docker
-│   ├── docker-compose.yaml     # Docker Compose configuration
-│   ├── dockerfile              # Dockerfile for building the image
-│   └── requirements.txt        # Python dependencies for the Docker image
-├── .env.example                       # Environment variables for sensitive information
+│   ├── docker-compose.yaml    # Docker Compose configuration
+│   ├── dockerfile            # Dockerfile for building the image
+│   └── requirements.txt      # Python dependencies for the Docker image
+├── .env.example             
 ├── .gitignore
-├── requirements.txt           # Python dependencies for the vercel project deploy
-└── README.md                  # Project documentation
-```
+├── requirements.txt         # Python dependencies for the vercel project deploy
+├── setup.cfg               # Python package configuration
+├── vercel.json            # Vercel deployment configuration
+└── README.md              # Project documentation
 
 ## Installation
 

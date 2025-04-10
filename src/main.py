@@ -1,4 +1,8 @@
 import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask, request, jsonify, abort
 import logging
 from services.line_service import LineService
