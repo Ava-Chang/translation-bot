@@ -46,7 +46,7 @@ translation-bot
    - FLASK_ENV                             # default "development"
    - OPENAI_API_KEY                        # OpenAI API key for LLM
    - LINE Channel Secret and Access Token
-   - LINE_USER_ID                          # set this variable to the user ID of the target user receiving the translation
+   - LINE_GROUP_ID                         # setting the group id for the bot to respond
 
 ## Usage
 

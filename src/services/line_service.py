@@ -22,7 +22,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
 )
 logger = logging.getLogger(__name__)
-exist_line_user_id = os.getenv('LINE_USER_ID')
+exit_line_group_id = os.getenv('LINE_GROUP_ID')
 
 class LineService:
     def __init__(self):
@@ -66,7 +66,7 @@ class LineService:
             source_type = source.type
             source_id = None
             user_id = None
-
+    
             # Get the appropriate ID based on source type
             if source_type == 'user':
                 source_id = source.user_id
@@ -80,12 +80,21 @@ class LineService:
                 source_id = source.room_id
                 user_id = source.user_id
                 logger.info(f"Received message from chat room {source_id}, user {user_id}")
-
+    
             logger.info(f"Message content: {text}")
             logger.debug(f"Complete event information: {event}")
             
-            if not exist_line_user_id:
-                logger.info(f"Unauthorized user {user_id} attempted to use the bot")
+            # 檢查是否為指定的群組
+            if not exit_line_group_id:
+                logger.info("LINE_GROUP_ID not set, skipping group check")
+                return
+                
+            # 只允許指定群組的訊息
+            if source_type == 'group' and source_id == exit_line_group_id:
+                logger.info(f"Received message from authorized group: {source_id}")
+            else:
+                logger.info(f"Received message from unauthorized group: {source_id}")
+                return
             
             translated_text = self.translate_text(text)
             logger.info(f"Translation result: {translated_text}")
@@ -94,7 +103,7 @@ class LineService:
                 event.reply_token,
                 translated_text
             )
-
+    
             logger.info(f"Successfully replied to {source_type} ({source_id})")
         except Exception as e:
             logger.error(f"Unexpected error: {e}", exc_info=True)
