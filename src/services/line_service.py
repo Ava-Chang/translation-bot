@@ -84,10 +84,8 @@ class LineService:
             logger.info(f"Message content: {text}")
             logger.debug(f"Complete event information: {event}")
             
-            # Check if the user is authorized
-            if exist_line_user_id and user_id != exist_line_user_id:
+            if not exist_line_user_id:
                 logger.info(f"Unauthorized user {user_id} attempted to use the bot")
-                return  # Skip processing for unauthorized users
             
             translated_text = self.translate_text(text)
             logger.info(f"Translation result: {translated_text}")
