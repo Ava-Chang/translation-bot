@@ -45,6 +45,7 @@ translation-bot
    - PORT                                  # Port for the application to run on
    - FLASK_ENV                             # default "development"
    - OPENAI_API_KEY                        # OpenAI API key for LLM
+   - LLM_MODEL                             # LLM model to use (e.g., "gpt-4", "gpt-3.5-turbo")
    - LINE Channel Secret and Access Token
    - LINE_GROUP_ID                         # setting the group id for the bot to respond
 

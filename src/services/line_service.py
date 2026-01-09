@@ -23,6 +23,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 exit_line_group_id = os.getenv('LINE_GROUP_ID')
+llm_model = os.getenv('LLM_MODEL', 'gpt-4o-mini')
 
 class LineService:
     def __init__(self):
@@ -134,7 +135,7 @@ class LineService:
 
             logger.info(f"Preparing to translate text: {text}")
             response = completion(
-                model = "gpt-4o-mini", 
+                model = llm_model, 
                 messages=[{
                     "content": get_prompt_message(text),
                     "role": "user"
