@@ -5,4 +5,4 @@ supabase==2.13.0
 langdetect==1.0.9
 line-bot-sdk==3.16.0
 gunicorn==23.0.0
-litellm==1.61.19
+litellm==1.83.4
